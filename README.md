@@ -37,9 +37,10 @@ npm run preview
 
 1. 在 `src/data/projects.json` 新增一個作品物件，依照既有作品填寫必要欄位：`id`、`slug`、`name`、`summary`、`category`、`technologies`、`version`、`updatedAt`、`features`、`screenshots`、`status`、`featured`、`links`。
 2. `category` 使用 `WinForms`、`WPF`、`Web`、`其他` 其中之一；未知版本或日期填 `null`，未知清單填空陣列。
-3. 截圖放入 `public/images/projects/`，資料填入相對網站根路徑，例如 `/images/projects/example.png`，並提供 `alt` 替代文字。畫面圖片會延遲載入。
-4. 只填寫已核實的 `links.github`、`links.releases`、`links.demo`。未設定的外部連結不會顯示，也不要以示意網址替代。
-5. 建議使用小寫英文與連字號建立唯一 `slug`，之後可用 `/#/projects/<slug>` 開啟作品詳細頁。
+3. 截圖放入 `public/images/projects/`，資料填入相對網站根路徑，例如 `/images/projects/example.png`，並提供 `alt` 替代文字。畫面圖片會延遲載入；本機圖片會自動套用 Vite `BASE_URL`，HTTPS 外部圖片維持原網址。卡片優先顯示截圖，WinForms 截圖完整呈現，不裁切圖片內容。
+4. 只填寫已核實的 `links.github`、`links.releases`、`links.demo`、`links.download`。未設定或不是合法 HTTPS 的連結不會顯示，也不要以示意網址替代。
+5. `links.github` 顯示「GitHub 原始碼」，`links.releases` 顯示「版本紀錄」，`links.demo` 顯示線上 Demo，`links.download` 顯示「下載 Windows 版」。直接下載網址應指向已發布 GitHub Release Asset（例如 ZIP）；瀏覽器會直接開啟該資產網址，不使用跨網域 `download` 屬性。
+6. 建議使用小寫英文與連字號建立唯一 `slug`，之後可用 `/#/projects/<slug>` 開啟作品詳細頁。
 
 部署前執行 `npm test` 與 `npm run build`，確認作品資料正確。
 

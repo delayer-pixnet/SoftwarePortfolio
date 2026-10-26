@@ -8,13 +8,8 @@
 
 ## 待驗證環境
 
-- 本機一般執行環境無法解析 `registry.npmjs.org` 與 `github.com`，未設定 Proxy；提高 npm 命令網路權限後，已安全連線官方 npm registry 並完成套件安裝、`npm ci`、測試及建置，未停用 SSL 驗證或改用其他套件來源。
-- 本機未安裝 GitHub CLI `gh`。GitHub connector 已確認公開 Repository `delayer-pixnet/SoftwarePortfolio` 存在，預設分支為 `main`，帳號有 push 權限；connector 不提供 Git Push 功能。
-- Repository 已建立且 GitHub 回報大小為 0；本機尚未設定 `origin`，也未執行首次 Push。
-- GitHub API 目前回報沒有 branch 或 Actions run；需要首次 Push 才會觸發 `main` 工作流程。Pages 設定與網址尚未驗證。
-- 執行 `git add` 遭沙箱拒絕，錯誤為無法建立 `.git/index.lock`；目前 `.git` 目錄唯讀，故未暫存或建立本機 commit。需在允許 Git 寫入的執行環境完成首次提交與 Push。
-- 尚無 `origin` 或 GitHub Repository，因此未建立首次 Git commit、未 Push，也沒有 Actions 執行結果或 Pages 實際網址。
-- Workflow 已設定 `contents: read`、`pages: write`、`id-token: write`，並要求 deploy job 等待 build job；仍須待 Repository 建立後由 GitHub 實際驗證。
-- GitHub Pages 尚未以真實 Repository 部署；請在 Pages 設定選擇 GitHub Actions，並確認 workflow 部署完成。
-- 尚未完成實際桌面與手機瀏覽器視覺檢查。
+- 本機 Git 沙箱對 `.git` 唯讀；先前 `git add` 無法建立 `.git/index.lock`。依專案規範不執行其他 Git 寫入；請在可寫入此工作目錄 `.git` 的 PowerShell 依遠端同步檢查後完成 Commit、Push，並確認對應 Actions run。
+- 瀏覽器視覺驗證尚未完成，1440、768、390 px 尺寸待人工驗收。這不阻擋文件更新、測試、Build 或 Git 流程。
+- 目前沒有已核實的 Release Asset；不得為 SSLCertMonitor 或其他作品填入假下載網址。
+- npm registry 的一般沙箱網路受限；已在允許的網路權限下從官方 registry 安裝並以 `npm ci` 驗證鎖定檔，未停用 SSL 驗證或改用其他套件來源。
 - 樣式載入 Noto Sans TC 與 DM 字型作為輔助；離線時會退回 Microsoft JhengHei 與系統字型。

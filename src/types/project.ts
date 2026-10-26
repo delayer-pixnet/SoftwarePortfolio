@@ -5,6 +5,7 @@ export interface ProjectLinks {
   github?: string;
   releases?: string;
   demo?: string;
+  download?: string;
 }
 
 export interface ProjectScreenshot {
