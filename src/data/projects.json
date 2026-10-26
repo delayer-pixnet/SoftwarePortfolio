@@ -44,7 +44,11 @@
     "screenshots": [],
     "status": "維護中",
     "featured": true,
-    "links": {},
+    "links": {
+      "github": "https://github.com/delayer-pixnet/SSLCertMonitor",
+      "releases": "https://github.com/delayer-pixnet/SSLCertMonitor/releases",
+      "download": "https://github.com/delayer-pixnet/SSLCertMonitor/releases/latest/download/SSLCertMonitor-win-x64.zip"
+    },
     "architecture": "以 Service 介面分離設定、憑證檢測與郵件通知。"
   },
   {
